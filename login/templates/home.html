@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+{% load static %}
+<title>HAL Home</title>
+<link rel="stylesheet" href="{% static '/styles.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.cards {
+  margin-left: 16px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 20%;
+}
+
+.cards:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  text-align: center;
+  margin-top: 16px;
+  padding: 2px 16px;
+}
+</style>
+
+
+</head>
+<body>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  {% if user.is_authenticated %}
+
+    <!--- LA SEZIONE DELLA NAV BAR ---->
+    {% include 'nav_bar.html' %}
+
+
+        <!--- Qua vengono visualizzate tutte le app disponibili   --->
+        <div class="cards">
+          <div class="container">
+            <a href="{%url 'index'%}">
+            <i class="fa fa-money fa-5x" aria-hidden="true"></i> <br/>
+          </a>
+          <h3> Money Manager app </h3>
+          <span>Ti permette di gestire le tue entrate e uscite e i tuoi risparmi </span>
+          </div>
+        </div>
+
+
+
+
+    {% else %}
+        <h1> Errore, devi effettuare il login.. </a> </h1>
+     {% endif %}
+  </body>
+
+</body>
+</html>
